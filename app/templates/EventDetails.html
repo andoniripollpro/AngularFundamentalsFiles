@@ -1,0 +1,62 @@
+<div style="padding-left:20px; padding-right:20px" ng-cloak>
+    <img ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
+    <div class="row">
+        <div class="spann11">
+            <h2 ng-style="mystyle" ng-bind-template="{{event.name | uppercase}} {{event.date | date:'dd MMM yyyy'}}"></h2>
+        </div>
+    </div>
+
+    <button class="btn" ng-disabled="buttonDisabled">Disabled</button>
+    <div ng-bind-html="snippet">some thing</div>
+    <div ng-bind-html-unsafe="snippet">some thing</div>
+    <h2 ng-show="{{valueBool}}">Show this</h2>
+    <h2 ng-hide="valueBool">Hide this</h2>
+    <div class="row">
+        <div class="span3">
+            <div><strong>Creator: </strong><a href="/#/eventAuthor/{{event.creator}}">{{event.creator}}</a></div>
+            <div><strong>Date:</strong> {{event.date | date:'mediumDate'}}</div>
+            <div><strong>Time:</strong> {{event.time}}</div>
+        </div>
+        <div class="span4">
+            <address>
+                <strong>Address:</strong><br/>
+                {{event.location.address}}<br/>
+                {{event.location.city}}, {{event.location.province}}
+            </address>
+        </div>
+    </div>
+
+    <hr />
+
+    <h3>Sessions</h3>
+    Order By:
+    <select ng-model="sortorder" class="input-small">
+        <option selected value="name">Name</option>
+        <option value="-upVoteCount">Votes</option>
+    </select>
+    <select ng-model="query.level" class="input-small">
+        <option selected value="">All</option>
+        <option value="introductory">Introductory</option>
+        <option value="intermediate">Intermediate</option>
+        <option value="advanced">Advanced</option>
+    </select>
+    <ul class="thumbnails">
+        <li ng-repeat="session in event.sessions | orderBy:sortorder | filter:query">
+            <div class="row session">
+
+                <updownvote upvote="upVoteSession(session)" downvote="downVoteSession(session)" count="session.upVoteCount" />
+
+                <div class="well span9">
+                    <h4 class="well-title">{{session.name}}</h4>
+                    <h6 style="margin-top:-10px">{{session.creatorName}}</h6>
+                    <span>Duration: {{session.duration | durations }}</span><br/>
+                    <span>Level: {{session.level}}</span><br/>
+                    <span>Price: {{session.price | currency}}</span>
+
+                    <p>{{session.abstract}}</p>
+                </div>
+            </div>
+            {{event.session.name}}
+        </li>
+    </ul>
+</div>

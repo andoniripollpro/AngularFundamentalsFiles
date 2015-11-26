@@ -1,0 +1,34 @@
+<div style="padding-left:20px; padding-right: 20px">
+    <!-- ng-controller="EditEventController" -->
+    <div class="container">
+        <h1>New Event</h1>
+        <hr />
+        <form name="newEventForm">
+            <label>
+                <label for="eventName">Event Name:</label>
+                <input id="eventName" type="text" required ng-model="event.name" placeholder="Name of your event..." />
+                <label for="eventDate">Event Date:</label>
+                <input id="eventDate" type="text" required ng-pattern="/\d\d/\d\d/\d\d\d\d/" ng-model="event.date" placeholder="Format (dd/mm/yyy)" />
+                <label for="eventTime">Event Time:</label>
+                <input id="eventTime" type="text" ng-model="event.time" placeholder="Time of your event..." />
+                <label for="eventLocation">Event Location:</label>
+                <input id="eventLocation" type="text" ng-model="event.location" placeholder="Location of your event..." />
+                <br />
+                <!-- More things -->
+
+                <label for="eventImageUrl">Image:</label>
+                <input id="eventImageUrl" type="url" ng-model="event.imageUrl"
+                <input id="eventImageUrl" type="url" ng-model="event.imageUrl"
+                       placeholder="Url of image..."/>
+                <br />
+            </fieldset>
+
+            <img ng-src="{{event.imageUrl}}" src="" />
+            <br />
+            <br />
+
+            <button type="submit" ng-disabled="newEventForm.$invalid" ng-click="saveEvent(event, newEventForm)" class="btn btn-primary">Save</button>
+            <button type="button" ng-click="cancelEvent()" class="btn btn-default">Cancel</button>
+        </form>
+    </div>
+</div>

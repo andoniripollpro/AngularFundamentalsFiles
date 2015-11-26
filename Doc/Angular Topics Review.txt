@@ -1,0 +1,22 @@
+*** Temas AngularJS ***
+>Architecture
+>Controller&Scope (ngController)
+>Built-in Directives (ngApp, ngBind + ngModel, ngBindTemplate,
+    ngClick, ngBindHtml, ngShow, ngHide, ngCloak)
+>Event Directives
+>Filters
+>Built-in Filters
+>Validation (ngPattern)
+>Services
+>Built-in Services ($http, $resource, $anchor, $anchorScroll, $compile, $parse,
+    $locale, $timeout, $exceptionHandler, $filter, $cookieStore)
+>Routing ($route, $routeParams, $location)
+>Custom Directives
+>?Transclusion
+>Karma UT ( describe('xxx', beforeEach(module("eventsApp")),
+    beforeEach(inject(function($controller, $rootScope){},
+    it('should', expect(xxx).toBe(yyy) )
+>Protractor E2E (beforeEach(function() {browser.get)
+
+Others:
+>?Require in Directives
